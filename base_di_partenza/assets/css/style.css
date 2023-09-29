@@ -3,27 +3,31 @@
 body {
     font-family: Roboto, sans-serif;
     font-size: 0.9em;
-    position: relative;
 }
 
 /* -----------------------------------------------------------------------------------------nav */
 
 header {
-margin-top: 93.3px;
-    background-color:#FFC017 ;
+    margin-top: 93.3px;
+    background-color: #FFC017;
 }
 
 nav {
-    background-color:#FFC017 ;
-    padding:30px 100px;
+    background-color: #FFC017;
+    padding: 30px 100px;
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid black;
-    position:fixed;
-    left:0px;
-    right:0px;
-    top:0px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
     z-index: 10;
+    transition: background-color 1s;
+}
+
+#heading button {
+    transition: color 1s, scale 1s, box-shadow 1s;
 }
 
 nav ul {
@@ -33,14 +37,22 @@ nav ul {
 }
 
 nav ul li {
-    padding:0px 10px;
+    padding: 0px 10px;
 }
 
 nav ul li button {
     background-color: #191919;
     border-radius: 30px;
-    color:white;
-    padding:7px 8px;
+    color: white;
+    padding: 7px 8px;
+    transition: background-color 1s, color 1s, scale 1s, box-shadow 1s;
+}
+
+header button:hover {
+    scale: 1.1;
+    color:rgb(105, 155, 180) !important;
+    cursor:pointer;
+    box-shadow: 6px 6px 20px rgb(155, 155, 155);
 }
 
 /* --------------------------------------------------------------- #heading */
@@ -48,22 +60,24 @@ nav ul li button {
 header {
     border-bottom: 2px solid black;
 }
+
 #heading {
     display: flex;
     justify-content: space-between;
     padding-left: 100px;
 }
+
 header #heading h1 {
     font-weight: 600;
-    font-family: Spectral,sans-serif;
-    margin:45px 0px;
+    font-family: Spectral, sans-serif;
+    margin: 45px 0px;
     font-size: 6em;
 }
 
 header #heading #secondary-heading {
     display: flex;
     flex-wrap: wrap;
-    width:65%;
+    width: 65%;
     font-size: 1.4em;
     padding-bottom: 60px;
 }
@@ -87,7 +101,7 @@ main {
     margin-top: 40px;
 }
 
-main > section {
+main>section {
 
     border-bottom: 1px solid lightgray;
 }
@@ -99,48 +113,48 @@ main > section {
 #trending-heading {
     display: flex;
     align-items: center;
-    padding:15px 0px;
+    padding: 15px 0px;
     font-weight: bold;
-    margin-left:100px;
+    margin-left: 100px;
 }
 
 #trending-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-left:100px;
+    margin-left: 100px;
     margin-right: 100px;
-    
+
 }
 
 .t-card {
     display: flex;
-    width:30%;
+    width: 30%;
     margin-bottom: 50px;
 }
 
 .number {
     margin-right: 15px;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bolder;
     opacity: 0.15;
 }
 
 #writer-n-1 {
-    width: 25px;
+    width: 20px;
     border-radius: 30px;
     margin-right: 10px;
 }
 
 .writer-img {
-    border-radius:10px;
-    width:25px;
+    border-radius: 10px;
+    width: 20px;
     margin-right: 10px;
 }
 
 .t-card h4 {
     font-weight: bold;
-    margin-top:10px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
@@ -159,14 +173,18 @@ main > section {
     align-items: center;
 }
 
+.t-card div:nth-child(2) div:nth-child(2) div img {
+    margin-left: 10px;
+}
+
 /* ----------------------------------------------------------------------------------------------------------------article */
 
 article {
     margin-top: 50px;
     display: flex;
-    margin-left:100px;
+    margin-left: 100px;
     margin-right: 100px;
-    position:relative;
+    position: relative;
 }
 
 article > section {
@@ -180,12 +198,13 @@ article > section {
     margin-bottom: 40px;
 }
 
-.card-article > img {
-    width:30%;
+.card-article>img {
+    width: 200px;
+    margin-left: 20px;
 }
 
 .info {
-    width:70%;
+    width: 70%;
 }
 
 .info div:nth-child(1) {
@@ -204,52 +223,65 @@ article > section {
 }
 
 .info div:nth-child(1) img {
-    width:25px;
+    width: 25px;
 }
 
 .info h3 {
     font-size: 1.3em;
     font-weight: bold;
-    margin:10px 0px;
+    margin: 10px 0px;
 }
 
 .info p {
     margin-bottom: 10px;
 }
 
-.info > img  {
-    position:relative;
-    left:90%;
+.info>img {
+    position: relative;
+    left: 90%;
+}
+article section span {
+    background-color: rgba(0, 0, 0, 0.054);
+    border-radius: 10px;
+    padding:3px 7px;
+    margin-right: 5px;
+} 
+.info div:nth-child(2) p:last-child {
+    display: flex;
+    align-items: center;
+
 }
 
 
 /* -------------------------------------------------------------------------------------------------------aside */
 
-article aside {
-    margin-left: 70px;
-    position: sticky;                 /* non funziona*/
-top: 200px;
+article #aside {
+    margin-left: 50px;
+    position: sticky;
+    top: 100px;                    /* il problema di sticky sta nella altezza del contenitore (e/o padre) al quale dai la proprietà, deve SEMPRE essere impostata => (height: 400px) */
+    align-items:start;
+    height: 400px;
 }
 
 
-aside h3 {
+#aside h3 {
     font-weight: bold;
-    margin:20px 0px;
+    margin: 20px 0px;
 }
 
 #box1 {
     display: flex;
     flex-wrap: wrap;
-    justify-content:start;
+    justify-content: start;
     padding-bottom: 25px;
     border-bottom: 1px solid lightgray;
 
 }
 
 #box1 span {
-    border:1px solid lightgray;
-    padding:5px;
-    margin:5px;
+    border: 1px solid lightgray;
+    padding: 5px;
+    margin: 5px;
 }
 
 
@@ -257,10 +289,10 @@ aside h3 {
     padding-top: 25px;
     display: flex;
     flex-wrap: wrap;
-    justify-content:start;
+    justify-content: start;
 }
 
 #box2 span {
-    padding:5px;
-    margin:5px;
+    padding: 5px;
+    margin: 5px;
 }
